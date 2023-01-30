@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1675062944 source:/home/messycode/codef/cpp/bucko/main.cpp
+	<iostream>
+	<fstream>
+
