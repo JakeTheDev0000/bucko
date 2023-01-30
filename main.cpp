@@ -2,20 +2,6 @@
 #include <fstream>
 
 int testEnv() {
-    // file handles
-    // std::cout << "hello from testEnv!!" << std::endl;
-
-    //std::ofstream fileMine("bucks.txt");
-    //fileMine << "its this is the only way to edit files";
-    //fileMine.close();
-
-    //std::ifstream MyReadFile("bucks.txt");
-
-    //std::string myText;
-    //getline(MyReadFile, myText);
-    //std::cout << myText << std::endl;
-    //MyReadFile.close();
-
     std::cout << "welcome to testEnv!!" << std::endl;
 
     std::ofstream bucksFileWrite("bucks.txt");
@@ -24,43 +10,75 @@ int testEnv() {
 
     bucksFileWrite << "number 21";
 
-    while(getline(bucksFileRead, bucksFileReadTmp)) {
+    bucksFileWrite.close();
+
+    while (getline (bucksFileRead, bucksFileReadTmp)) {
         std::cout << bucksFileReadTmp << std::endl;
     }
 
     bucksFileRead.close();
-    bucksFileWrite.close();
     return 0;
+}
 
-    // Create a text string, which is used to output the text file
-    //string myText;
+int showGameDevSplash(int showMenuTitle) {
+// ___ ___   ___ ____________ __  ____  ____ ___ ___   ___
+// |   |   | /  _] ___/ ___/  |  |/    |/    |   |   | /  _]
+// | _   _ |/  [(   \(   \_|  |  |   __|  o  | _   _ |/  [_
+// |  \_/  |    _]__  \__  |  ~  |  |  |     |  \_/  |    _]
+// |   |   |   [_/  \ /  \ |___, |  |_ |  _  |   |   |   [_
+// |   |   |     \    \    |     |     |  |  |   |   |     |
+// |___|___|_____|\___|\___|____/|___,_|__|__|___|___|_____|
 
-    // Read from the text file
-    //ifstream MyReadFile("filename.txt");
+    std::cout << R"( ___ ___   ___ ____________ __  ____  ____ ___ ___   ___
+|   |   | /  _] ___/ ___/  |  |/    |/    |   |   | /  _]
+| _   _ |/  [(   \(   \_|  |  |   __|  o  | _   _ |/  [_
+|  \_/  |    _]__  \__  |  ~  |  |  |     |  \_/  |    _]
+|   |   |   [_/  \ /  \ |___, |  |_ |  _  |   |   |   [_
+|   |   |     \    \    |     |     |  |  |   |   |     |
+|___|___|_____|\___|\___|____/|___,_|__|__|___|___|_____|
+)";
 
-    // Use a while loop together with the getline() function to read the file line by line
-    //while (getline (MyReadFile, myText)) {
-    // Output the text from the file
-    //cout << myText;
-    //}
+    system("sleep 1;clear");
+    if (showMenuTitle == 0) {
+        return 0;
+    }
+
+    std::cout << "\n";
+    std::cout << R"(▀█████████▄  ███    █▄   ▄████████    ▄█   ▄█▄          ▄██████▄
+  ███    ███ ███    ███ ███    ███   ███ ▄███▀          ███    ███
+  ███    ███ ███    ███ ███    █▀    ███▐██▀            ███    ███
+ ▄███▄▄▄██▀  ███    ███ ███         ▄█████▀             ███    ███
+▀▀███▀▀▀██▄  ███    ███ ███        ▀▀█████▄             ███    ███
+  ███    ██▄ ███    ███ ███    █▄    ███▐██▄            ███    ███
+  ███    ███ ███    ███ ███    ███   ███ ▀███▄          ███    ███
+▄█████████▀  ████████▀  ████████▀    ███   ▀█▀           ▀██████▀
+    )";
+
+}
+
+int gameRun() {
+    std::cout << "starting game..." << std::endl;
 }
 
 int main() {
-    std::cout << "starting..." << std::endl;
-    testEnv();
-    return 0;
+    showGameDevSplash(1);
 
     int optionOnWhatTodo;
-    std::cout << "what would you like todo\n[1] start\n[2] options\n[3] exit\n\n";
+    std::cout << "\n\nwhat would you like todo?\n[1] start\n[2] options\n[3] exit\n\n";
     std::cin >> optionOnWhatTodo;
 
     if (optionOnWhatTodo == 1) {
-
+        gameRun();
     }
     else if (optionOnWhatTodo == 2) {
         std::cout << "there's no options!!" << std::endl;
     }
     else if (optionOnWhatTodo == 3) {
+        system("clear;(speaker-test -t sine -f 650)& pid=$!;clear; sleep 0.2s; kill -9 $pid");
+        system("clear;(speaker-test -t sine -f 740)& pid=$!;clear; sleep 0.07s; kill -9 $pid");
+        system("clear;(speaker-test -t sine -f 1000)& pid=$!;clear; sleep 0.1s; kill -9 $pid");
+        system("clear");
+        showGameDevSplash(0);
         return 0;
     }
     else {
